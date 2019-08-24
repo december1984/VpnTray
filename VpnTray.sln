@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray", "VpnTray\VpnTray.csproj", "{08095B08-ACD9-4892-A6BF-3BE8A37288E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VpnTray.Domain", "VpnTray.Domain\VpnTray.Domain.csproj", "{415A8E8E-642F-4730-9E50-FBCA2C7631F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{224718A6-93FD-4260-90F2-42C29D53B1D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VpnTray.Domain.Tests", "VpnTray.Domain.Tests\VpnTray.Domain.Tests.csproj", "{AACA623E-A619-4819-8F4A-081B4C5597CA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VpnTray.ViewModels", "VpnTray.ViewModels\VpnTray.ViewModels.csproj", "{F4FB9241-056E-44FF-A532-EA5A7B4DD887}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A7546A87-83B2-4B83-BAE2-A174011C2D4C}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.txt = TODO.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VpnTray.Driver.WinApi", "VpnTray.Driver.WinApi\VpnTray.Driver.WinApi.csproj", "{34046F67-EBA2-45CA-A199-008EB1AE14BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.Driver", "VpnTray.Driver\VpnTray.Driver.csproj", "{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08095B08-ACD9-4892-A6BF-3BE8A37288E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08095B08-ACD9-4892-A6BF-3BE8A37288E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08095B08-ACD9-4892-A6BF-3BE8A37288E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08095B08-ACD9-4892-A6BF-3BE8A37288E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415A8E8E-642F-4730-9E50-FBCA2C7631F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415A8E8E-642F-4730-9E50-FBCA2C7631F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415A8E8E-642F-4730-9E50-FBCA2C7631F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415A8E8E-642F-4730-9E50-FBCA2C7631F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AACA623E-A619-4819-8F4A-081B4C5597CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AACA623E-A619-4819-8F4A-081B4C5597CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AACA623E-A619-4819-8F4A-081B4C5597CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AACA623E-A619-4819-8F4A-081B4C5597CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4FB9241-056E-44FF-A532-EA5A7B4DD887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4FB9241-056E-44FF-A532-EA5A7B4DD887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4FB9241-056E-44FF-A532-EA5A7B4DD887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4FB9241-056E-44FF-A532-EA5A7B4DD887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34046F67-EBA2-45CA-A199-008EB1AE14BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34046F67-EBA2-45CA-A199-008EB1AE14BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34046F67-EBA2-45CA-A199-008EB1AE14BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34046F67-EBA2-45CA-A199-008EB1AE14BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AACA623E-A619-4819-8F4A-081B4C5597CA} = {224718A6-93FD-4260-90F2-42C29D53B1D3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7ED3E79-61AD-4E1E-B9EE-39322E49A43F}
+	EndGlobalSection
+EndGlobal
