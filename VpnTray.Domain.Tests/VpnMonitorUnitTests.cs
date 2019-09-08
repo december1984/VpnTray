@@ -99,7 +99,6 @@ namespace VpnTray.Domain.Tests
         [TestCase(VpnStatus.Disconnecting)]
         [TestCase(VpnStatus.Disconnected)]
         [TestCase(VpnStatus.Connecting)]
-        [TestCase(VpnStatus.DoesNotExist)]
         [TestCase(VpnStatus.DriverFailure)]
         [TestCase((VpnStatus)333)]
         public async Task Refresh_ShouldSetStatus(VpnStatus status)

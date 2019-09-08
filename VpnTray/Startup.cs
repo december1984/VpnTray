@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using SimpleInjector;
 using VpnTray.Domain;
 using VpnTray.Driver;
-using VpnTray.SystemDataAccess.FileSimulator;
 using VpnTray.ViewModels;
 using VpnTray.ViewModels.Configuration;
 

@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using VpnTray.Domain;
 using VpnTray.Driver.WinApi;
 using VpnTray.Properties;
-using VpnTray.SystemDataAccess.FileSimulator;
 using VpnTray.ViewModels;
 
 namespace VpnTray
