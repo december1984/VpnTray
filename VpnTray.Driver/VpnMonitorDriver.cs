@@ -40,8 +40,8 @@ namespace VpnTray.Driver
                 return Task.FromResult(IPAddress.None);
             }
 
-            var status = RasApi32.RasGetConnectStatus(connection.Handle);
-            return Task.FromResult(new IPAddress(status.RemoteEndPoint.IPv4));
+            var status = RasApi32.RasGetProjectionInfo(connection.Handle);
+            return Task.FromResult(new IPAddress(status.ppp.IPv4Address));
         }
     }
 }

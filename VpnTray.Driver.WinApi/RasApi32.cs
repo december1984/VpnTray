@@ -182,5 +182,19 @@ namespace VpnTray.Driver.WinApi
 
             return status;
         }
+
+        [DllImport("RasApi32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
+        public static extern int RasGetProjectionInfoEx(
+            [In] IntPtr handle, 
+            [In][Out] ref RasProjectionInfo info, 
+            [In][Out] ref int size);
+
+        public static RasProjectionInfo RasGetProjectionInfo(IntPtr handle)
+        {
+            var info = new RasProjectionInfo();
+            int size = Marshal.SizeOf<RasProjectionInfo>();
+            int result = RasGetProjectionInfoEx(handle, ref info, ref size);
+            return info;
+        }
     }
 }

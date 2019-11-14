@@ -106,6 +106,10 @@
       <Project>{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}</Project>
       <Name>VpnTray.Driver</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VpnTray.System\VpnTray.System.csproj">
+      <Project>{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}</Project>
+      <Name>VpnTray.System</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VpnTray.ViewModels\VpnTray.ViewModels.csproj">
       <Project>{f4fb9241-056e-44ff-a532-ea5a7b4dd887}</Project>
       <Name>VpnTray.ViewModels</Name>

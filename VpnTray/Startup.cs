@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SimpleInjector;
 using VpnTray.Domain;
 using VpnTray.Driver;
+using VpnTray.SystemDriver;
 using VpnTray.ViewModels;
 using VpnTray.ViewModels.Configuration;
 
@@ -22,6 +23,8 @@ namespace VpnTray
             Services.Register<IVpnEnumeratorDriver, VpnEnumeratorDriver>();
             Services.Register<IVpnConnectorDriver, VpnConnectorDriver>();
             Services.Register<IVpnMonitorDriver, VpnMonitorDriver>();
+
+            Services.RegisterSingleton<ISystemEventsProvider, SystemEventsProvider>();
 
             Services.Register<VpnEnumerator>();
             Services.Register<VpnManagerFactory>();

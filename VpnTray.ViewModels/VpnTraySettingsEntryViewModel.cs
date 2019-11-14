@@ -39,6 +39,17 @@ namespace VpnTray.ViewModels
             }
         }
 
+        public bool DisconnectOnLock
+        {
+            get => VpnManager.DisconnectOnLock;
+            set
+            {
+                if (VpnManager.DisconnectOnLock == value) return;
+                VpnManager.DisconnectOnLock = value;
+                OnPropertyChanged();
+            }
+        }
+
         public TimeSpan RefreshInterval
         {
             get => VpnManager.Monitor.RefreshInterval;

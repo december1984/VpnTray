@@ -14,13 +14,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VpnTray.ViewModels", "VpnTray.ViewModels\VpnTray.ViewModels.csproj", "{F4FB9241-056E-44FF-A532-EA5A7B4DD887}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A7546A87-83B2-4B83-BAE2-A174011C2D4C}"
-	ProjectSection(SolutionItems) = preProject
-		TODO.txt = TODO.txt
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VpnTray.Driver.WinApi", "VpnTray.Driver.WinApi\VpnTray.Driver.WinApi.csproj", "{34046F67-EBA2-45CA-A199-008EB1AE14BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.Driver", "VpnTray.Driver\VpnTray.Driver.csproj", "{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.System", "VpnTray.System\VpnTray.System.csproj", "{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +51,10 @@ Global
 		{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
