@@ -31,7 +31,7 @@ namespace VpnTray.Domain
 
         private async Task _systemEventsProvider_SessionLock(object sender, EventArgs e)
         {
-            if (DisconnectOnLock)
+            if (DisconnectOnLock && Monitor.Status == VpnStatus.Connected)
             {
                 await Connector.Disconnect();
                 _disconnectedOnLock = true;
