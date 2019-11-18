@@ -12,7 +12,7 @@ using VpnTray.ViewModels;
 
 namespace VpnTray.Views
 {
-    class VpnTrayNotifyIconWrapper
+    class VpnTrayNotifyIconWrapper : IDisposable
     {
         private static readonly Dictionary<VpnStatus, Icon> Icons = new Dictionary<VpnStatus, Icon>
         {
@@ -98,6 +98,12 @@ namespace VpnTray.Views
         private void SetTooltip()
         {
             Icon.Text = ViewModel.TooltipText;
+        }
+
+        public void Dispose()
+        {
+            Icon.Dispose();
+            ViewModel.PropertyChanged -= ViewModelOnPropertyChanged;
         }
     }
 }

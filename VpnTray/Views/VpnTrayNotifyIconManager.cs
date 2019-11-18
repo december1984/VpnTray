@@ -51,7 +51,7 @@ namespace VpnTray.Views
                         var notifyIcon = NotifyIcons[e.OldStartingIndex];
                         _container.Remove(notifyIcon.Icon);
                         NotifyIcons.Remove(notifyIcon);
-                        notifyIcon.Icon.Dispose();
+                        notifyIcon.Dispose();
                     }
                     break;
             }
