@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace VpnTray.Driver.WinApi
@@ -47,7 +46,7 @@ namespace VpnTray.Driver.WinApi
                     break;
             }
 
-            throw new Win32Exception(Marshal.GetLastWin32Error());
+            throw new RasApi32Exception(result);
         }
 
         [DllImport("RasApi32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
@@ -73,7 +72,7 @@ namespace VpnTray.Driver.WinApi
             {
                 return entry;
             }
-            throw new Win32Exception(Marshal.GetLastWin32Error());
+            throw new RasApi32Exception(result);
         }
 
         [DllImport("RasApi32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
@@ -96,7 +95,7 @@ namespace VpnTray.Driver.WinApi
             {
                 return dialparams;
             }
-            throw new Win32Exception(Marshal.GetLastWin32Error());
+            throw new RasApi32Exception(result);
         }
 
         [DllImport("RasApi32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
@@ -115,7 +114,7 @@ namespace VpnTray.Driver.WinApi
             {
                 return connection;
             }
-            throw new Win32Exception(Marshal.GetLastWin32Error());
+            throw new RasApi32Exception(result);
         }
 
         [DllImport("RasApi32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
@@ -160,7 +159,7 @@ namespace VpnTray.Driver.WinApi
                 }
             }
 
-            throw new Win32Exception(Marshal.GetLastWin32Error());
+            throw new RasApi32Exception(result);
         }
 
         [DllImport("RasApi32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
@@ -177,24 +176,29 @@ namespace VpnTray.Driver.WinApi
 
             if (RasGetConnectStatus(handle, ref status) != RasErrorCodes.ERROR_SUCCESS)
             {
-                throw new Win32Exception(Marshal.GetLastWin32Error());
+                throw new RasApi32Exception(result);
             }
 
             return status;
         }
 
         [DllImport("RasApi32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern int RasGetProjectionInfoEx(
+        public static extern int RasGetProjectionInfo(
             [In] IntPtr handle, 
-            [In][Out] ref RasProjectionInfo info, 
+            [In] RasProjection projection, 
+            [In][Out] RasPppIp projectionInfo, 
             [In][Out] ref int size);
 
-        public static RasProjectionInfo RasGetProjectionInfo(IntPtr handle)
+        public static RasPppIp RasGetProjectionInfo(IntPtr handle)
         {
-            var info = new RasProjectionInfo();
-            int size = Marshal.SizeOf<RasProjectionInfo>();
-            int result = RasGetProjectionInfoEx(handle, ref info, ref size);
-            return info;
+            int size = Marshal.SizeOf<RasPppIp>();
+            var info = new RasPppIp { Size = size };
+            int result = RasGetProjectionInfo(handle, RasProjection.PppIp, info, ref size);
+            if (result == RasErrorCodes.ERROR_SUCCESS)
+            {
+                return info;
+            }
+            throw new RasApi32Exception(result);
         }
     }
 }

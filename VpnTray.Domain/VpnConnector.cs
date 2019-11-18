@@ -18,13 +18,11 @@ namespace VpnTray.Domain
 
         public async Task Connect()
         {
-            System.Diagnostics.Trace.WriteLine("Connect");
             await _vpnConnectorDriver.Connect(Vpn.Id);
         }
 
         public async Task Disconnect()
         {
-            System.Diagnostics.Trace.WriteLine("Disconnect");
             await _vpnConnectorDriver.Disconnect(Vpn.Id);
         }
     }

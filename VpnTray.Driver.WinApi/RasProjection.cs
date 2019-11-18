@@ -1,6 +1,6 @@
 ﻿namespace VpnTray.Driver.WinApi
 {
-    public enum RasProjection
+    public enum RasProjection : int
     {
         Amb = 0x10000,
         PppNbf = 0x803F,

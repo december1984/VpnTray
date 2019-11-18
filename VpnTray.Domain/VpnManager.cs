@@ -22,7 +22,7 @@ namespace VpnTray.Domain
 
         private async Task _systemEventsProvider_SessionUnlock(object sender, EventArgs e)
         {
-            if (DisconnectOnLock && _disconnectedOnLock)
+            if (ReconnectOnUnlock && _disconnectedOnLock)
             {
                 await Connector.Connect();
                 _disconnectedOnLock = false;
@@ -43,5 +43,6 @@ namespace VpnTray.Domain
         public VpnMonitor Monitor { get; }
 
         public bool DisconnectOnLock { get; set; } = true;
+        public bool ReconnectOnUnlock { get; set; } = true;
     }
 }

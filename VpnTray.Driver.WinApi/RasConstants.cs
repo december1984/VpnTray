@@ -11,6 +11,7 @@ namespace VpnTray.Driver.WinApi
         public const int RAS_MaxDeviceName = 128;
         public const int RAS_MaxPhoneNumber = 128;
         public const int RAS_MaxCallbackNumber = 128;
+        public const int RAS_MaxIpAddress = 15;
 
         public const int RAS_MaxAreaCode = 10;
         public const int RAS_MaxPadType = 32;

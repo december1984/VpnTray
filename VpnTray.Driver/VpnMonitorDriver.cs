@@ -41,7 +41,7 @@ namespace VpnTray.Driver
             }
 
             var status = RasApi32.RasGetProjectionInfo(connection.Handle);
-            return Task.FromResult(new IPAddress(status.ppp.IPv4Address));
+            return Task.FromResult(IPAddress.Parse(status.IpAddress));
         }
     }
 }

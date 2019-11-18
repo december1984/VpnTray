@@ -50,6 +50,17 @@ namespace VpnTray.ViewModels
             }
         }
 
+        public bool ReconnectOnUnlock
+        {
+            get => VpnManager.ReconnectOnUnlock;
+            set
+            {
+                if (VpnManager.ReconnectOnUnlock == value) return;
+                VpnManager.ReconnectOnUnlock = value;
+                OnPropertyChanged();
+            }
+        }
+
         public TimeSpan RefreshInterval
         {
             get => VpnManager.Monitor.RefreshInterval;
