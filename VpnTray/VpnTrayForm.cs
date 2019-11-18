@@ -19,7 +19,7 @@ namespace VpnTray
     {
         private readonly VpnTrayFormViewModel _viewModel;
 
-        private readonly VpnTraySettingsCheckedListBox _settingsCheckedListBox;
+        private readonly VpnTraySettingsView _settingsView;
 
         private readonly VpnTrayNotifyIconManager _vpnTrayNotifyIcon;
 
@@ -34,12 +34,12 @@ namespace VpnTray
                 components = new Container();
             }
 
-            _settingsCheckedListBox = new VpnTraySettingsCheckedListBox(_viewModel.Settings)
+            _settingsView = new VpnTraySettingsView(_viewModel.Settings)
             {
                 Dock = DockStyle.Fill,
-                CheckOnClick = true
+                //CheckOnClick = true
             };
-            Controls.Add(_settingsCheckedListBox);
+            Controls.Add(_settingsView);
             
             _vpnTrayNotifyIcon = new VpnTrayNotifyIconManager(components, contextMenuStrip1, _viewModel.Icons);
         }

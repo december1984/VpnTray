@@ -55,7 +55,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Views\VpnTrayNotifyIconManager.cs" />
     <Compile Include="Views\VpnTrayNotifyIconWrapper.cs" />
-    <Compile Include="Views\VpnTraySettingsCheckedListBox.cs">
+    <Compile Include="Views\VpnTraySettingsView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VpnTrayForm.cs">
