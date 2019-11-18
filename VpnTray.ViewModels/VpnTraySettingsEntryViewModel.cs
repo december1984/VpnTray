@@ -23,6 +23,8 @@ namespace VpnTray.ViewModels
 
             RefreshInterval = configuration.RefreshInterval;
             IsSelected = configuration.IsSelected;
+            DisconnectOnLock = configuration.DisconnectOnLock;
+            ReconnectOnUnlock = configuration.ReconnectOnUnlock;
         }
 
         public string Id => VpnManager.Vpn.Id;

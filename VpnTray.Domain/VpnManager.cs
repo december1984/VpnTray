@@ -42,7 +42,7 @@ namespace VpnTray.Domain
         public VpnConnector Connector { get; }
         public VpnMonitor Monitor { get; }
 
-        public bool DisconnectOnLock { get; set; } = true;
-        public bool ReconnectOnUnlock { get; set; } = true;
+        public bool DisconnectOnLock { get; set; }
+        public bool ReconnectOnUnlock { get; set; }
     }
 }
