@@ -31,7 +31,9 @@ namespace VpnTray
                         Id = parts[0],
                         Name = parts[1],
                         RefreshInterval = TimeSpan.Parse(parts[2]),
-                        IsSelected = bool.Parse(parts[3])
+                        IsSelected = bool.Parse(parts[3]),
+                        DisconnectOnLock = parts.Length <= 4 || bool.Parse(parts[4]),
+                        ReconnectOnUnlock = parts.Length <= 5 || bool.Parse(parts[5])
                     };
                 })
                 .ToArray() ?? new VpnTraySettingsEntryConfiguration[0];
@@ -43,7 +45,7 @@ namespace VpnTray
             Settings.Default.EnumeratorRefreshInterval = Configuration.EnumeratorRefreshInterval;
             Settings.Default.DefaultMonitorRefreshInterval = Configuration.DefaultMonitorRefreshInterval;
             Settings.Default.Entries = new StringCollection();
-            Settings.Default.Entries.AddRange(Configuration.Entries.Select(e => $"{e.Id};{e.Name};{e.RefreshInterval};{e.IsSelected}").ToArray());
+            Settings.Default.Entries.AddRange(Configuration.Entries.Select(e => $"{e.Id};{e.Name};{e.RefreshInterval};{e.IsSelected};{e.DisconnectOnLock};{e.ReconnectOnUnlock}").ToArray());
             Settings.Default.Save();
         }
     }
