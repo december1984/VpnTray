@@ -174,7 +174,8 @@ namespace VpnTray.Driver.WinApi
                 Size = Marshal.SizeOf<RasConnStatus>()
             };
 
-            if (RasGetConnectStatus(handle, ref status) != RasErrorCodes.ERROR_SUCCESS)
+            int result = RasGetConnectStatus(handle, ref status);
+            if (result != RasErrorCodes.ERROR_SUCCESS)
             {
                 throw new RasApi32Exception(result);
             }
