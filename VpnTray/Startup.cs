@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SimpleInjector;
 using VpnTray.Domain;
-using VpnTray.Driver;
+using VpnTray.Driver.Cisco.AnyConnect;
 using VpnTray.SystemDriver;
 using VpnTray.ViewModels;
 using VpnTray.ViewModels.Configuration;

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.Driver", "VpnTray.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.System", "VpnTray.System\VpnTray.System.csproj", "{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.Driver.Cisco.AnyConnect", "VpnTray.Driver.Cisco.AnyConnect\VpnTray.Driver.Cisco.AnyConnect.csproj", "{3DF6344F-6562-4703-A92C-CC06BDC031FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DF6344F-6562-4703-A92C-CC06BDC031FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF6344F-6562-4703-A92C-CC06BDC031FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF6344F-6562-4703-A92C-CC06BDC031FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF6344F-6562-4703-A92C-CC06BDC031FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

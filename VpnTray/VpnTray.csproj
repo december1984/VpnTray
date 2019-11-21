@@ -98,9 +98,9 @@
       <Project>{415A8E8E-642F-4730-9E50-FBCA2C7631F4}</Project>
       <Name>VpnTray.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VpnTray.Driver.WinApi\VpnTray.Driver.WinApi.csproj">
-      <Project>{34046F67-EBA2-45CA-A199-008EB1AE14BB}</Project>
-      <Name>VpnTray.Driver.WinApi</Name>
+    <ProjectReference Include="..\VpnTray.Driver.Cisco.AnyConnect\VpnTray.Driver.Cisco.AnyConnect.csproj">
+      <Project>{3df6344f-6562-4703-a92c-cc06bdc031fd}</Project>
+      <Name>VpnTray.Driver.Cisco.AnyConnect</Name>
     </ProjectReference>
     <ProjectReference Include="..\VpnTray.Driver\VpnTray.Driver.csproj">
       <Project>{F0E053C6-ECF3-47A7-9089-6D65AB5B4E09}</Project>
