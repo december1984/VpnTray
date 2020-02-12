@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using VpnTray.Properties;
 using VpnTray.ViewModels.Configuration;
 
@@ -21,31 +22,49 @@ namespace VpnTray
                 DefaultMonitorRefreshInterval = Settings.Default.DefaultMonitorRefreshInterval,
             };
 
-            var entries = Settings.Default.Entries?
-                .OfType<string>()
-                .Select(s =>
+            try
+            {
+                var document = XDocument.Parse(Settings.Default.Entries);
+                foreach (var providerElement in document.Root.Elements("Provider"))
                 {
-                    var parts = s.Split(';');
-                    return new VpnTraySettingsEntryConfiguration
+                    var entries = new List<VpnTraySettingsEntryConfiguration>();
+                    foreach (var entryElement in providerElement.Elements("Entry"))
                     {
-                        Id = parts[0],
-                        Name = parts[1],
-                        RefreshInterval = TimeSpan.Parse(parts[2]),
-                        IsSelected = bool.Parse(parts[3]),
-                        DisconnectOnLock = parts.Length <= 4 || bool.Parse(parts[4]),
-                        ReconnectOnUnlock = parts.Length <= 5 || bool.Parse(parts[5])
-                    };
-                })
-                .ToArray() ?? new VpnTraySettingsEntryConfiguration[0];
-            Configuration.Entries.AddRange(entries);
+                        entries.Add(new VpnTraySettingsEntryConfiguration
+                        {
+                            Id = entryElement.Attribute("id").Value,
+                            Name = entryElement.Attribute("name").Value,
+                            RefreshInterval = (TimeSpan)entryElement.Attribute("refreshInterval"),
+                            IsSelected = (bool)entryElement.Attribute("isSelected"),
+                            DisconnectOnLock = (bool)entryElement.Attribute("disconnectOnLock"),
+                            ReconnectOnUnlock = (bool)entryElement.Attribute("reconnectOnUnlock")
+                        });
+                    }
+                    Configuration.Entries[providerElement.Attribute("name").Value] = entries;
+                }
+            }
+            catch
+            {
+                Configuration.Entries.Clear();
+            }
         }
 
         public void Save()
         {
             Settings.Default.EnumeratorRefreshInterval = Configuration.EnumeratorRefreshInterval;
             Settings.Default.DefaultMonitorRefreshInterval = Configuration.DefaultMonitorRefreshInterval;
-            Settings.Default.Entries = new StringCollection();
-            Settings.Default.Entries.AddRange(Configuration.Entries.Select(e => $"{e.Id};{e.Name};{e.RefreshInterval};{e.IsSelected};{e.DisconnectOnLock};{e.ReconnectOnUnlock}").ToArray());
+            var document = new XDocument(
+                new XElement("Entries", Configuration.Entries.Select(p => 
+                    new XElement("Provider", 
+                        new XAttribute("name", p.Key), p.Value.Select(e => 
+                        new XElement("Entry",
+                            new XAttribute("id", e.Id),
+                            new XAttribute("name", e.Name),
+                            new XAttribute("refreshInterval", e.RefreshInterval),
+                            new XAttribute("isSelected", e.IsSelected),
+                            new XAttribute("disconnectOnLock", e.DisconnectOnLock),
+                            new XAttribute("reconnectOnUnlock", e.ReconnectOnUnlock)))))));
+            Settings.Default.Entries = document.ToString();
             Settings.Default.Save();
         }
     }

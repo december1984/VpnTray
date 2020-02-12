@@ -7,6 +7,6 @@ namespace VpnTray.ViewModels.Configuration
     {
         public TimeSpan EnumeratorRefreshInterval { get; set; }
         public TimeSpan DefaultMonitorRefreshInterval { get; set; }
-        public List<VpnTraySettingsEntryConfiguration> Entries { get; } = new List<VpnTraySettingsEntryConfiguration>();
+        public Dictionary<string, List<VpnTraySettingsEntryConfiguration>> Entries { get; } = new Dictionary<string, List<VpnTraySettingsEntryConfiguration>>();
     }
 }

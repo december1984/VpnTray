@@ -8,7 +8,7 @@
     <Setting Name="DefaultMonitorRefreshInterval" Type="System.TimeSpan" Scope="User">
       <Value Profile="(Default)">00:00:01</Value>
     </Setting>
-    <Setting Name="Entries" Type="System.Collections.Specialized.StringCollection" Scope="User">
+    <Setting Name="Entries" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

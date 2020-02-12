@@ -45,6 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VpnEnumeratorDriver.cs" />
     <Compile Include="VpnMonitorDriver.cs" />
+    <Compile Include="WindowsVpnProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VpnTray.Domain\VpnTray.Domain.csproj">

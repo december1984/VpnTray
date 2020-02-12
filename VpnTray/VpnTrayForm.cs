@@ -21,7 +21,7 @@ namespace VpnTray
 
         private readonly VpnTraySettingsView _settingsView;
 
-        private readonly VpnTrayNotifyIconManager _vpnTrayNotifyIcon;
+        private readonly List<VpnTrayNotifyIconManager> _vpnTrayNotifyIcon;
 
         public VpnTrayForm(VpnTrayFormViewModel viewModel)
         {
@@ -34,14 +34,21 @@ namespace VpnTray
                 components = new Container();
             }
 
-            _settingsView = new VpnTraySettingsView(_viewModel.Settings)
+            _vpnTrayNotifyIcon = new List<VpnTrayNotifyIconManager>();
+
+            foreach (var tab in _viewModel.Tabs)
             {
-                Dock = DockStyle.Fill,
-                //CheckOnClick = true
-            };
-            Controls.Add(_settingsView);
-            
-            _vpnTrayNotifyIcon = new VpnTrayNotifyIconManager(components, contextMenuStrip1, _viewModel.Icons);
+                _settingsView = new VpnTraySettingsView(tab.Settings)
+                {
+                    Dock = DockStyle.Fill,
+                    //CheckOnClick = true
+                };
+                var page = new TabPage(tab.Name);
+                page.Controls.Add(_settingsView);
+                tabControl1.TabPages.Add(page);
+
+                _vpnTrayNotifyIcon.Add(new VpnTrayNotifyIconManager(components, contextMenuStrip1, tab.Icons));
+            }
         }
 
         private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -91,7 +98,7 @@ namespace VpnTray
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            if (_vpnTrayNotifyIcon.NotifyIcons.Count > 0 && e.CloseReason == CloseReason.UserClosing)
+            if (_vpnTrayNotifyIcon.Sum(i => i.NotifyIcons.Count) > 0 && e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
                 Hide();
@@ -101,7 +108,7 @@ namespace VpnTray
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            if (_vpnTrayNotifyIcon.NotifyIcons.Count > 0)
+            if (_vpnTrayNotifyIcon.Sum(i => i.NotifyIcons.Count) > 0)
             {
                 Hide();
             }
