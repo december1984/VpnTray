@@ -77,13 +77,8 @@ namespace VpnTray.ViewModels
                             }
                         }
 
-                        _configurationProvider.Configuration.Entries[_vpnProvider.Name].Single(s => s.Id == entry.Id).IsSelected =
-                            entry.IsSelected;
                         break;
                     }
-                case nameof(VpnTraySettingsEntryViewModel.Name):
-                    _configurationProvider.Configuration.Entries[_vpnProvider.Name].Single(s => s.Id == entry.Id).Name = entry.Name;
-                    break;
             }
 
             _configurationProvider.Save();

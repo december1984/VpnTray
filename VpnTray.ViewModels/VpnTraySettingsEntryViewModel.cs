@@ -19,23 +19,33 @@ namespace VpnTray.ViewModels
             _configuration = configuration;
 
             VpnManager = vpnManager;
-            VpnManager.Vpn.NameChanged += (s, e) => OnPropertyChanged(nameof(Name));
+            VpnManager.Vpn.NameChanged += (s, e) => { Name = VpnManager.Vpn.Name; };
 
-            RefreshInterval = configuration.RefreshInterval;
-            IsSelected = configuration.IsSelected;
-            DisconnectOnLock = configuration.DisconnectOnLock;
-            ReconnectOnUnlock = configuration.ReconnectOnUnlock;
+            VpnManager.Monitor.RefreshInterval = configuration.RefreshInterval;
+            VpnManager.Monitor.IsEnabled = configuration.IsSelected;
+            VpnManager.DisconnectOnLock = configuration.DisconnectOnLock;
+            VpnManager.ReconnectOnUnlock = configuration.ReconnectOnUnlock;
         }
 
         public string Id => VpnManager.Vpn.Id;
-        public string Name => VpnManager.Vpn.Name;
+        public string Name
+        {
+            get => _configuration.Name;
+            set
+            {
+                if (_configuration.Name == value) return;
+                _configuration.Name = value;
+                OnPropertyChanged();
+            }
+        }
 
         public bool IsSelected
         {
-            get => VpnManager.Monitor.IsEnabled;
+            get => _configuration.IsSelected;
             set
             {
-                if (VpnManager.Monitor.IsEnabled == value) return;
+                if (_configuration.IsSelected == value) return;
+                _configuration.IsSelected = value;
                 VpnManager.Monitor.IsEnabled = value;
                 OnPropertyChanged();
             }
@@ -43,10 +53,11 @@ namespace VpnTray.ViewModels
 
         public bool DisconnectOnLock
         {
-            get => VpnManager.DisconnectOnLock;
+            get => _configuration.DisconnectOnLock;
             set
             {
-                if (VpnManager.DisconnectOnLock == value) return;
+                if (_configuration.DisconnectOnLock == value) return;
+                _configuration.DisconnectOnLock = value;
                 VpnManager.DisconnectOnLock = value;
                 OnPropertyChanged();
             }
@@ -54,10 +65,11 @@ namespace VpnTray.ViewModels
 
         public bool ReconnectOnUnlock
         {
-            get => VpnManager.ReconnectOnUnlock;
+            get => _configuration.ReconnectOnUnlock;
             set
             {
-                if (VpnManager.ReconnectOnUnlock == value) return;
+                if (_configuration.ReconnectOnUnlock == value) return;
+                _configuration.ReconnectOnUnlock = value;
                 VpnManager.ReconnectOnUnlock = value;
                 OnPropertyChanged();
             }
@@ -65,8 +77,14 @@ namespace VpnTray.ViewModels
 
         public TimeSpan RefreshInterval
         {
-            get => VpnManager.Monitor.RefreshInterval;
-            set => VpnManager.Monitor.RefreshInterval = value;
+            get => _configuration.RefreshInterval;
+            set
+            {
+                if (_configuration.RefreshInterval == value) return;
+                _configuration.RefreshInterval = value;
+                VpnManager.Monitor.RefreshInterval = value;
+                OnPropertyChanged();
+            }
         }
     }
 }

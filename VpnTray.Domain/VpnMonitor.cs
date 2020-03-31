@@ -92,7 +92,14 @@ namespace VpnTray.Domain
                 Status = await _vpnMonitorDriver.GetStatus(Vpn.Id);
                 if (Status == VpnStatus.Connected)
                 {
-                    IPAddress = await _vpnMonitorDriver.GetIpAddress(Vpn.Id);
+                    try
+                    {
+                        IPAddress = await _vpnMonitorDriver.GetIpAddress(Vpn.Id);
+                    }
+                    catch
+                    {
+                        IPAddress = IPAddress.None;
+                    }
                 }
             }
             catch (Exception)
