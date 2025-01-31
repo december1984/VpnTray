@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SimpleInjector;
 using VpnTray.Domain;
 using VpnTray.Driver;
+using VpnTray.Driver.Azure;
 using VpnTray.Driver.Cisco.AnyConnect;
 using VpnTray.SystemDriver;
 using VpnTray.ViewModels;
@@ -21,7 +22,7 @@ namespace VpnTray
         {
             Services.Register<IVpnTrayConfigurationProvider, SettingsConfigurationProvider>();
 
-            Services.Collection.Register<VpnProvider>(typeof(WindowsVpnProvider), typeof(CiscoVpnProvider));
+            Services.Collection.Register<VpnProvider>(typeof(WindowsVpnProvider), typeof(AzureVpnProvider), typeof(CiscoVpnProvider));
 
             Services.RegisterSingleton<ISystemEventsProvider, SystemEventsProvider>();
 

@@ -98,6 +98,10 @@
       <Project>{415A8E8E-642F-4730-9E50-FBCA2C7631F4}</Project>
       <Name>VpnTray.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VpnTray.Driver.Azure\VpnTray.Driver.Azure.csproj">
+      <Project>{7EAF0739-2A0F-4737-9261-EAA7C4636F19}</Project>
+      <Name>VpnTray.Driver.Azure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VpnTray.Driver.Cisco.AnyConnect\VpnTray.Driver.Cisco.AnyConnect.csproj">
       <Project>{3df6344f-6562-4703-a92c-cc06bdc031fd}</Project>
       <Name>VpnTray.Driver.Cisco.AnyConnect</Name>

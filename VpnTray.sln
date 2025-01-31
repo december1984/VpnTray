@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29215.179
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray", "VpnTray\VpnTray.csproj", "{08095B08-ACD9-4892-A6BF-3BE8A37288E1}"
 EndProject
@@ -21,7 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.Driver", "VpnTray.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.System", "VpnTray.System\VpnTray.System.csproj", "{81B8D3E7-6054-4BD2-96AB-C5F90E5B9778}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.Driver.Cisco.AnyConnect", "VpnTray.Driver.Cisco.AnyConnect\VpnTray.Driver.Cisco.AnyConnect.csproj", "{3DF6344F-6562-4703-A92C-CC06BDC031FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VpnTray.Driver.Cisco.AnyConnect", "VpnTray.Driver.Cisco.AnyConnect\VpnTray.Driver.Cisco.AnyConnect.csproj", "{3DF6344F-6562-4703-A92C-CC06BDC031FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpnTray.Driver.Azure", "VpnTray.Driver.Azure\VpnTray.Driver.Azure.csproj", "{7EAF0739-2A0F-4737-9261-EAA7C4636F19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{3DF6344F-6562-4703-A92C-CC06BDC031FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DF6344F-6562-4703-A92C-CC06BDC031FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DF6344F-6562-4703-A92C-CC06BDC031FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EAF0739-2A0F-4737-9261-EAA7C4636F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EAF0739-2A0F-4737-9261-EAA7C4636F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EAF0739-2A0F-4737-9261-EAA7C4636F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EAF0739-2A0F-4737-9261-EAA7C4636F19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
